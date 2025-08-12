@@ -1,0 +1,1 @@
+# Provider configuration moved to main.tf

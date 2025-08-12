@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-production
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: app-production
+  template:
+    metadata:
+      labels:
+        app: app-production
+    spec:
+      containers:
+        - name: app
+          image: us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$TAG
+          ports:
+            - containerPort: 8080

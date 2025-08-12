@@ -1,0 +1,40 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: gke-pipeline
+description: Pipeline for deploying to GKE
+serialPipeline:
+  stages:
+    - targetId: dev
+      profiles: []
+    - targetId: staging
+      profiles: []
+    - targetId: production
+      profiles: []
+
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: dev
+description: Development environment
+gke:
+  cluster: projects/$PROJECT_ID/locations/us-central1/clusters/gke-cluster
+
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: staging
+description: Staging environment
+gke:
+  cluster: projects/$PROJECT_ID/locations/us-central1/clusters/gke-cluster
+
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: production
+description: Production environment
+gke:
+  cluster: projects/$PROJECT_ID/locations/us-central1/clusters/gke-cluster
