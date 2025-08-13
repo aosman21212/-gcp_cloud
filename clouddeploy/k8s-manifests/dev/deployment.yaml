@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: app
-          image: us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/app:$TAG
+          image: us-central1-docker.pkg.dev/coral-subject-466408-v9/my-repo/app:latest
           ports:
             - containerPort: 8080

@@ -1,0 +1,12 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: app
+manifests:
+  rawYaml:
+  - k8s-manifests/dev/*.yaml
+portForward:
+- resourceType: service
+  resourceName: app-dev-service
+  port: 80
+  localPort: 8080
